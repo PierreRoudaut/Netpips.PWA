@@ -1,0 +1,23 @@
+div.media-library-treemap {
+    mat-card {
+        padding: 0;
+        cursor: pointer;
+    }
+    .hide {
+        display: none;
+    }
+    .drill-down-title {
+        padding: 10px;
+    }
+    .link {
+        color: #337ab7;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .line-with-icon mat-icon {
+        font-size: 1rem;
+        width: inherit;
+        height: 1.2rem;
+        vertical-align: middle;
+    }
+}

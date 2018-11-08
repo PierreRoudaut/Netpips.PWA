@@ -1,0 +1,9 @@
+.app-loading {
+    .logo {
+      width: 128px;
+      height: 128px;
+      
+      // this way asset gets processed by webpack 
+      background: url(../assets/netpips_icon_128.png) center center no-repeat; 
+    }
+  }

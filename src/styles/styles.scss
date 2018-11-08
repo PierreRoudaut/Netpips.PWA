@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~styles/custom-indigo-pink-theme.scss';
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+// prevent chrome from adding a border to links
+*:focus {
+    outline: none;
+}
+
+// fixes alignment bug for material design icons with menus
+button.mat-menu-item {
+    line-height: 24px !important;
+}
+
+a.mat-menu-item>mat-icon {
+    margin-bottom: 14px;
+}
+
+.mat-icon svg {
+    height: 24px;
+    width: 24px;
+}
+
+// icons alignment endfix
+
+.media-library-treeview-context-menu {
+    li.dx-menu-item-wrapper {
+        height: 36px;
+    }
+}
+
+.toast-warn {
+    background-color: mat-color($app-warn) !important;
+    color: white !important;
+    button {
+        color: darkslategray;
+    }
+}
+
+.toast-primary {
+    background-color: mat-color($app-primary) !important;
+    color: white !important;
+    button {
+        color: darkgray;
+    }
+}
+
+.toast-accent {
+    background-color: mat-color($app-accent) !important;
+    color: white !important;
+    button {
+        color: darkgray;
+    }
+}

@@ -1,0 +1,17 @@
+.media-page-component {
+    padding-top: 20px;
+    div.component-caption {
+        padding-bottom: 5px;
+        color: #616161;
+    }
+}
+
+.media-page-component.large-side-padding {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.media-page-component.small-side-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+}

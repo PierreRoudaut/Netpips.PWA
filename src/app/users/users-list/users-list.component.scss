@@ -1,0 +1,18 @@
+.users-list-component {
+    img.picture {
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+    }
+    mat-icon.picture-placeholder {
+        height: 25px;
+        width: 25px;
+        color: #616161;
+    }
+    .align-vertically {
+        vertical-align: middle;
+    }
+    .role-cell {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,15 @@
+<div>
+    <form [formGroup]="form">
+        <h3 mat-dialog-title>Download</h3>
+        <mat-dialog-content>
+            <mat-form-field color="accent" style="width:100%">
+                <input formControlName="fileUrl" autocomplete="off" matInput [(ngModel)]="fileUrl" name="fileUrl" placeholder="URL" required>
+                <mat-error *ngIf="form.get('fileUrl').hasError('invalidUrl')">{{form.get('fileUrl').getError('invalidUrl').message}}</mat-error>
+            </mat-form-field>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+            <button color="accent" [disabled]="form.invalid" (click)="onOk()" mat-button mat-dialog-close><strong>OK</strong></button>
+        </mat-dialog-actions>
+    </form>
+</div>

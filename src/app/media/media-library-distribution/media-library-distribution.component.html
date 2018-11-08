@@ -1,0 +1,11 @@
+<div class="component-caption mat-body-2">Distribution</div>
+<mat-card class="media-library-distribution">
+  <dx-pie-chart #distributionChart palette="material" [dataSource]="groups" (onOptionChanged)="onOptionChanged($event)">
+    <dxo-legend [visible]="true" [rowCount]="2" orientation="horizontal"  itemTextPosition="right" horizontalAlignment="left" verticalAlignment="top"></dxo-legend>
+    <dxi-series argumentField="name" valueField="size">
+      <dxo-label [visible]="true" [customizeText]="customizeLabel">
+        <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+      </dxo-label>
+    </dxi-series>
+  </dx-pie-chart>
+</mat-card>

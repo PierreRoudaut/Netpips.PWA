@@ -1,0 +1,35 @@
+@import '~styles/custom-indigo-pink-theme.scss';
+mat-expansion-panel {
+    mat-panel-description {
+        span.next-episode-duration {
+            margin-left: 5px;
+            color: mat-color($app-accent, 300);
+        }
+        .mat-icon {
+            margin-right: 5px;
+        }
+    }
+    div.show-detail {
+        div.summary-row {
+            margin-top: 15px;
+            div.summary {
+                text-align: justify;
+            }
+        }
+        img {
+            width: auto;
+            max-height: 120px;
+        }
+        div.rating mat-icon {
+            color: #ecdc4b;
+        }
+        div.runtime mat-icon {
+            color: grey;
+        }
+    }
+    mat-action-row {
+        button {
+            font-weight: bold;
+        }
+    }
+}

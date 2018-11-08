@@ -1,0 +1,44 @@
+@import '~styles/custom-indigo-pink-theme.scss';
+.home-component {
+    background-color: #f2f2f2;
+    height: 100%;
+    mat-sidenav {
+        mat-list-item {
+            font-size: 14px;
+        }
+        mat-list-item.mat-list-item-focus {
+            background-color: transparent;
+        }
+        mat-list-item.active-route {
+            background-color: lightgray;
+        }
+        width: 300px;
+        div.user-profile {
+            padding: 15px;
+            img {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+            }
+            background-color: mat-color($app-primary);
+            div {
+                color: white;
+            }
+        }
+    }
+    mat-toolbar {
+        // background-color: #aeb5b4; //todo: remove
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    }
+    .router-outlet-container {
+        // for fixed navbar
+        overflow: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 64px;
+
+        padding-bottom: 30px;
+    }
+}

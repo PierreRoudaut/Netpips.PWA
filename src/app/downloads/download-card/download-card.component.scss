@@ -1,0 +1,57 @@
+@import '~styles/custom-indigo-pink-theme.scss';
+.download-card-component {
+    margin-left: 10px;
+    margin-right: 10px;
+    mat-card {
+        overflow-x: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        max-width: 600px;
+        button[mat-icon-button].archive {
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: lightslategray;
+        }
+        button[mat-button].cancel {
+            line-height: 0;
+        }
+        mat-list {
+            mat-list-item {
+                height: 24px;
+            }
+        }
+        mat-card-title {
+            span {
+                &.item-completed {
+                    color: mat-color($app-primary);
+                    font-weight: bold;
+                }
+                &.item-processing {
+                    color: mat-color($app-accent);
+                    font-weight: bold;
+                }
+                &.item-downloading {
+                    color: mat-color($app-accent);
+                    font-weight: bold;
+                }
+                &.item-canceled {
+                    color: rgba(0, 0, 0, 0.54);
+                }
+            }
+        }
+        mat-card-subtitle.moved-files span {
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .line-with-icon mat-icon {
+            font-size: 1rem;
+            width: inherit;
+            height: 1.2rem;
+            vertical-align: middle;
+        }
+    }
+}

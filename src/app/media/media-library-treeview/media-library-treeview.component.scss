@@ -1,0 +1,58 @@
+@import '~styles/custom-indigo-pink-theme.scss';
+.media-library-treeview {
+    span.size {
+        margin-left: 10px;
+        color: grey;
+        font-weight: 300;
+    }
+    /deep/ dx-tree-view {
+        div.media-item {
+            span.title {
+                color: rgba(0, 0, 0, 0.54);
+                font-weight: normal;
+            }
+        }
+        div.media-item.root-node {
+            span.title {
+                color: mat-color($app-primary);
+                font-weight: 500;
+            }
+        }
+        div.dx-item.dx-treeview-item {
+            padding: 4px 8px;
+            button.media-item-menu-button.root-node {
+                visibility: hidden;
+            }
+            button.media-item-menu-button {
+                visibility: hidden;
+            }
+            span.size {
+                visibility: hidden;
+            }
+        }
+        div.dx-item.dx-treeview-item.dx-state-hover {
+            button.media-item-menu-button.root-node {
+                visibility: hidden;
+            }
+            button.media-item-menu-button {
+                visibility: visible;
+            }
+            span.size {
+                visibility: visible;
+            }
+        }
+        li.dx-treeview-node.dx-state-selected {
+            >div.dx-item.dx-treeview-item {
+                button.media-item-menu-button.root-node {
+                    visibility: hidden;
+                }
+                button.media-item-menu-button {
+                    visibility: visible;
+                }
+                span.size {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}

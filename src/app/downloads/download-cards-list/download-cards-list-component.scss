@@ -1,0 +1,15 @@
+.download-cards-list-component {
+    height: 100%;
+    .download-cards-wrapper {
+        div.spacer {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        div.placeholder-no-downloads {
+            color: lightgrey;
+            mat-icon {
+                font-size: 96px;
+            }
+        }
+    }
+}

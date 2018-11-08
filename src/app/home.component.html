@@ -1,0 +1,59 @@
+<div style="position:absolute;top:0;left:0;right:0;bottom:0;">
+  <mat-sidenav-container class="home-component" style="height:100%;width:100%;">
+
+    <mat-sidenav #sidenav class="sidenav-menu">
+      <div *ngIf="authService.user" class="user-profile" fxLayout="column">
+        <div>
+          <img [src]="authService.user.picture">
+        </div>
+        <div class="full-name mat-body-2" >
+          <span>{{authService.user.givenName + ' ' + authService.user.familyName}}</span>
+        </div>
+        <div class="email mat-body-1">{{authService.user.email}}</div>
+      </div>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let navItem of mainMenuItems" (click)="sidenav.close()" [routerLink]="['/' + navItem.path]" routerLinkActive="mat-body-2 active-route">
+          <mat-icon [svgIcon]="navItem.icon"></mat-icon>
+          <a style="margin-left: 1em;">{{navItem.title}}</a>
+        </mat-list-item>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <mat-list-item (click)="openPlexWeb()">
+          <mat-icon svgIcon="plex"></mat-icon>
+          <a style="margin-left: 1em;">Plex</a>
+        </mat-list-item>
+        <mat-list-item (click)="openChromeExtensionPage()">
+          <mat-icon svgIcon="google-chrome"></mat-icon>
+          <a style="margin-left: 1em;">Chrome extension</a>
+        </mat-list-item>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <mat-list-item (click)="signOut()">
+          <mat-icon svgIcon="logout"></mat-icon>
+          <a style="margin-left: 1em;">Sign out</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{appTitle}}</span>
+      <span fxFlex></span>
+      <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button> -->
+    </mat-toolbar>
+
+    <div class="router-outlet-container">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-container>
+
+  <!-- <mat-menu #menu="matMenu">
+  </mat-menu> -->
+</div>

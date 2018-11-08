@@ -1,0 +1,23 @@
+.add-show {
+    background-color: white;
+    div.wrapper {
+        mat-form-field {
+            width: 100%;
+            /deep/ div.mat-form-field-wrapper {
+                padding-left: 24px;
+                padding-right: 10px;
+                padding-bottom: 12px;
+            }
+            /deep/ div.mat-form-field-underline {
+                display: none;
+            }
+            /deep/ input:focus {
+                caret-color: lightgrey;
+            }
+        }
+    }
+    /deep/ mat-expansion-panel {
+        box-shadow: unset;
+        border-top: 1px solid lightgrey;
+    }
+}

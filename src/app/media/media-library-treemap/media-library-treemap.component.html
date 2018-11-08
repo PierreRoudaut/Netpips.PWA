@@ -1,0 +1,27 @@
+<div class="media-library-treemap">
+    <div *ngIf="drillInfos.length === 0" class="component-caption mat-body-2">
+        Library
+    </div>
+    <div *ngIf="drillInfos.length > 0" class="component-caption mat-body-2">
+          <span class="line-with-icon" *ngFor="let drillInfo of drillInfos; let isLast = last">
+              <span [ngClass]="{'link': !!drillInfo.node }" (click)="drillInfoClick(drillInfo.node)">{{drillInfo.text}}</span>
+              <mat-icon *ngIf="!isLast">chevron_right</mat-icon>
+          </span>
+      </div>
+  <mat-card>
+      <dx-tree-map #treeMap
+      [dataSource]="library.items"
+      resolveLabelOverflow="ellipsis"
+      idField="path"
+      theme="material.teal.light"
+      valueField="size"
+      parentField="parent"
+      [interactWithGroup]="true"
+      [maxDepth]="2"
+      (onClick)="nodeClick($event)"
+      (onDrill)="drill($event)"
+      (onOptionChanged)="onOptionChanged($event)">
+        <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip" zIndex="1000"></dxo-tooltip>
+    </dx-tree-map>
+  </mat-card>
+</div>

@@ -1,0 +1,30 @@
+<div class="download-cards-list-component">
+  <mat-progress-bar *ngIf="pendingRequests.length > 0" style="height: 3px" color="accent" mode="indeterminate"></mat-progress-bar>
+
+  <app-search-card (startDownload)="startDownload($event)"></app-search-card>
+
+  <div class="download-cards-wrapper">
+    <div *ngIf="awaitingDownloadItems" class="spacer" fxLayout="column" fxLayoutAlign="center center">
+      <mat-spinner diameter="48" color="primary" mode="indeterminate"></mat-spinner>
+    </div>
+    <div [@downloadItemsAnimation]="downloads.length">
+      <div *ngFor="let download of downloads; let i = index">
+        <app-download-card [item]="download" (removeFromList)="removeDownload($event)"></app-download-card>
+      </div>
+    </div>
+    <div *ngIf="!awaitingDownloadItems && downloads.length == 0" class="spacer placeholder-no-downloads" fxLayout="column"
+      fxLayoutAlign="center center">
+      <div >
+        <mat-icon>inbox</mat-icon>
+        <div class="caption">No downloads</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="position:fixed;bottom:24px;right:24px">
+    <button (click)="openDownloadDialog()" matTooltip="Download" mat-fab>
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div>
+    <div class="component-caption mat-body-2">Media library</div>
+    <mat-card class="media-library-treeview">
+        <dx-tree-view id="media-library-treeview" selectByClick='true' selectionMode='single' searchExpr='path' searchTimeout='300'
+            [items]="library.items" dataStructure="plain" keyExpr='path' displayExpr='path' parentIdExpr='parent' [searchEnabled]="true"
+            itemTemplate='itemTemplate'>
+            <dxo-search-editor-options placeholder="Search">
+            </dxo-search-editor-options>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="media-item" [ngClass]="{'root-node': isRootItem(item)}" *dxTemplate="let item of 'itemTemplate'">
+                <div class="media-item-title">
+                    <span class="title">{{getFilename(item)}}</span>
+                </div>
+                <div>
+                    <span class="size">{{library.computeSize(item)}}</span>
+                    <button (click)="itemMenuClick($event, item)" [ngClass]="{'root-node': isRootItem(item)}" class="media-item-menu-button"
+                        mat-icon-button>
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </dx-tree-view>
+    </mat-card>
+
+    <dx-context-menu #itemMenu cssClass="media-library-treeview-context-menu" (onItemClick)="performMenuAction($event)" [dataSource]="dataSource" itemTemplate="item">
+        <div class="media-item-menu-action" style="padding-left: 10px" *dxTemplate="let data of 'item'; let i = index" fxLayout="row"
+            fxLayoutAlign=" center">
+            <mat-icon *ngIf="data.icon" style="margin-right: 10px" [svgIcon]="data.icon"></mat-icon>
+            <span>{{data.text}}</span>
+        </div>
+    </dx-context-menu>
+
+    <dx-load-panel shadingColor="rgba(0,0,0,0.4)" [position]="{ of: window }" [visible]="loadingPanelVisible" [showIndicator]="true"
+        [showPane]="true" [shading]="true" [closeOnOutsideClick]="false">
+    </dx-load-panel>
+</div>

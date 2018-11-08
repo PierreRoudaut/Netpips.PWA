@@ -1,0 +1,41 @@
+<mat-expansion-panel [expanded]="params.panelInitiallyExpanded">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{show.showTitle}}
+    </mat-panel-title>
+    <mat-panel-description *ngIf="show.detail && show.detail.nextEpisode">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon>timer</mat-icon>
+        <span fxHide.xs="true">next episode will air</span>
+        <span class="next-episode-duration">in {{show.detail.nextEpisode.durationFromNow.humanize()}}</span>
+      </div>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div *ngIf="loadingPanelVisible" fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner diameter="42" color="accent" mode="indeterminate"></mat-spinner>
+  </div>
+  <div *ngIf="show.detail" class="show-detail" fxFlex fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex fxLayout="row" fxLayoutGap="15px">
+      <img [src]="show.detail.imageUrl">
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+        <div class="runtime" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <mat-icon>access_time</mat-icon>
+          <span>{{show.detail.runtime}} min.</span>
+        </div>
+        <div class="rating" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <mat-icon>star</mat-icon>
+          <span>{{show.detail.rating}}/10</span>
+        </div>
+        <mat-chip-list class="genres">
+          <mat-chip selected color="accent" *ngFor="let genre of show.detail.genres">{{genre}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+    <div class="summary-row">
+      <div class="summary" [innerHTML]="show.detail.summary"></div>
+    </div>
+  </div>
+  <mat-action-row>
+    <button [color]="params.buttonColor" mat-button (click)="actionFn.emit(show)">{{ params.buttonCaption }}</button>
+  </mat-action-row>
+</mat-expansion-panel>

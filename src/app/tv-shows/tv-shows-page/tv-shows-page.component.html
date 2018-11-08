@@ -1,0 +1,18 @@
+<div class="tv-shows-page" fxLayout="column" fxLayoutAlign="center center">
+  <div fxFlex fxLayoutGap="15px" fxLayout="column" [ngClass.lt-md]="'small-side-padding'" fxLayoutGap="15px">
+    <div fxFill class="explanation" fxLayout="row" fxLayoutAlign="start center">
+      <mat-icon>information</mat-icon>
+      <span>
+        Newly aired episodes of your shows will be automatically downloaded
+      </span>
+    </div>
+    <app-add-show fxFill [subscribableShows]="subscribableShows" (addShow)="subscribe($event)"></app-add-show>
+    <div *ngIf="subscribedShows.length == 0" class="placeholder-no-suscription" fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <mat-icon>tv</mat-icon>
+        <div class="caption">No TV Shows</div>
+      </div>
+    </div>
+    <app-my-shows *ngIf="subscribedShows.length" fxFill [subscribedShows]="subscribedShows" (removeShow)="unsubscribe($event)"></app-my-shows>
+  </div>
+</div>

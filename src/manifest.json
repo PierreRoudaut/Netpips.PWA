@@ -1,0 +1,15 @@
+{
+  "name": "Netpips",
+  "short_name": "Netpips",
+  "theme_color": "#008080",
+  "background_color": "#008080",
+  "icons": [
+    {
+      "src": "assets/icons/netpips_icon_128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "index.html"
+}

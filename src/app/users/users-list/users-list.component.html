@@ -1,0 +1,27 @@
+<div class="users-list-component mat-elevation-z7">
+  <dx-data-grid [dataSource]="users" keyExpr="id" [allowColumnReordering]="false" (onRowUpdating)="onRowUpdating($event)" (onRowRemoving)="onRowRemoving($event)" (onCellPrepared)="onCellPrepared($event)" (onRowInserting)="onRowInserting($event)">
+    <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+        <dxo-texts confirmDeleteMessage="Delete user ?"></dxo-texts>
+    </dxo-editing>
+
+    <dxi-column [allowSorting]="false" [allowEditing]="false" dataField="picture" [width]="50" caption="" cellTemplate="pictureCellTemplate"></dxi-column>
+    <dxi-column dataField="email" caption="Email">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+        <dxi-validation-rule type="email" message="Must be a valid address"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="role" caption="Role" cellTemplate="roleCellTemplate">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+      <dxo-lookup [dataSource]="assignableRoles"></dxo-lookup>
+    </dxi-column>
+
+    <div *dxTemplate="let data of 'roleCellTemplate'" class="role-cell">
+      {{data.value}}
+    </div>
+
+    <div *dxTemplate="let data of 'pictureCellTemplate'">
+      <img *ngIf="data.value" class="picture align-vertically" [src]="data.value" />
+      <mat-icon *ngIf="!data.value" class="picture-placeholder align-vertically" svgIcon="account"></mat-icon>
+    </div>
+
+  </dx-data-grid>
+</div>

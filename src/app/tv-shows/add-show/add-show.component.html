@@ -1,0 +1,21 @@
+<div class="add-show mat-elevation-z1">
+  <div class="wrapper">
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput placeholder="Add show" [matAutocomplete]="auto" [formControl]="inputControl">
+      <button mat-button *ngIf="inputControl.value" matSuffix mat-icon-button (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onShowSelected($event)"
+        [displayWith]="displayFn">
+        <mat-option *ngFor="let show of filteredsubscribableShows | async" [value]="show">
+          <span>{{show.showTitle}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <mat-accordion *ngIf="selectedShow" class="headers-align">
+    <app-tv-show-detail [show]="selectedShow" (actionFn)="onAddShowClicked($event)" [params]="params">
+    </app-tv-show-detail>
+  </mat-accordion>
+</div>

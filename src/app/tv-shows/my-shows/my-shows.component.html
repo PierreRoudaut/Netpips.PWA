@@ -1,0 +1,7 @@
+<div class="my-shows">
+  <div class="component-caption mat-body-2">My Shows ({{subscribedShows.length}})</div>
+  <mat-accordion *ngIf="subscribedShows.length"  class="example-headers-align">
+    <app-tv-show-detail [show]="show" (actionFn)="onRemoveShowClicked($event)" [params]="params"  *ngFor="let show of subscribedShows">
+    </app-tv-show-detail>
+  </mat-accordion>
+</div>

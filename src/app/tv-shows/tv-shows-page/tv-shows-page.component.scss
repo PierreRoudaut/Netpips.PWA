@@ -1,0 +1,43 @@
+@import '~styles/custom-indigo-pink-theme.scss';
+.tv-shows-page {
+    padding-top: 20px;
+    .small-side-padding {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    div.explanation {
+        padding: 20px 20px 20px 0;
+        margin-bottom: 0px !important;
+        color: mat-color($app-accent, 400);
+        mat-icon {
+            vertical-align: middle;
+            font-size: 22px;
+            margin-right: 5px;
+        }
+        span {
+            font-family: monospace;
+        }
+    }
+    * {
+        max-width: 800px;
+    }
+    /deep/ mat-expansion-panel-header {
+        /deep/ mat-panel-description {
+            flex-basis: 0;
+            align-items: center;
+        }
+        /deep/ mat-panel-title {
+            flex-basis: 20%;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #9E9E9E;
+        }
+    }
+    div.placeholder-no-suscription {
+        color: lightgrey;
+        mat-icon {
+            font-size: 96px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<div class="media-page-component" fxLayout="column" fxLayoutGap="15px" [ngClass.lt-md]="'small-side-padding'" 
+    [ngClass.gt-md]="'large-side-padding'" [ngClass.md]="'large-side-padding'">
+  <app-media-library-treeview [library]="library"></app-media-library-treeview>
+  <app-media-library-treemap [library]="library"></app-media-library-treemap>
+  <div fxFlex class="media-page-charts" fxLayoutGap="15px"
+      fxLayoutAlign="space-between center" fxLayout.gt-md="row" fxLayout.lt-md="column" >
+    <app-media-library-distribution fxFill  fxFlex.gt-md="50"></app-media-library-distribution>
+    <app-available-disk-usage fxFill fxFlex.gt-md="50"></app-available-disk-usage>
+  </div>
+</div>

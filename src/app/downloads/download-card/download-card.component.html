@@ -1,0 +1,81 @@
+<div class="download-card-component">
+    <mat-card>
+        <div class="panel-body">
+            <div [ngSwitch]="item.state">
+
+                <div *ngSwitchCase="'Downloading'">
+                    <mat-card-header>
+                        <div mat-card-avatar style="background-size: cover" [style.backgroundImage]="'url('+ ownerPictureUrl +')'"></div>
+                        <mat-card-title>
+                            <span class="item-downloading">{{item.name}}</span>
+                        </mat-card-title>
+                        <mat-card-subtitle>{{itemUrl()}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-progress-bar color="accent" mode="determinate" [value]="percentageProgress"></mat-progress-bar>
+                        <small>{{progressLine}}</small>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button *ngIf="canEditDownloadItem()" color="accent" class="cancel" (click)="cancel()" mat-button>CANCEL</button>
+                    </mat-card-actions>
+                </div>
+
+                <div *ngSwitchCase="'Canceled'">
+                    <mat-card-header>
+                        <div mat-card-avatar style="opacity: 0.5; background-size: cover" [style.backgroundImage]="'url('+ ownerPictureUrl +')'"></div>
+                        <mat-card-title>
+                            <span class="item-canceled">{{item.name}}</span>
+                        </mat-card-title>
+                        <mat-card-subtitle>{{itemUrl()}}</mat-card-subtitle>
+                        <button *ngIf="canEditDownloadItem()" mat-icon-button matTooltipPosition="after" matTooltip="Cleanup" (click)="archive()"
+                            class="archive">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-card-header>
+                </div>
+
+                <div *ngSwitchCase="'Completed'">
+                    <mat-card-header>
+                        <div mat-card-avatar style="background-size: cover" [style.backgroundImage]="'url('+ ownerPictureUrl +')'"></div>
+                        <mat-card-title>
+                            <span class="item-completed">{{item.name}}</span>
+                        </mat-card-title>
+                        <mat-card-subtitle (click)="movedFilesExpanded=!movedFilesExpanded" class="moved-files line-with-icon">
+                            <span>{{itemUrl()}} </span>
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </mat-card-subtitle>
+                        <button *ngIf="canEditDownloadItem()" mat-icon-button matTooltipPosition="after" matTooltip="Cleanup" (click)="archive()"
+                            class="archive">
+                            <mat-icon mat-icon-button>close</mat-icon>
+                        </button>
+                    </mat-card-header>
+                    <mat-card-content [@movedFilesListAnimation]="movedFilesExpanded" *ngIf="movedFilesExpanded">
+                        <mat-list dense>
+                            <mat-list-item *ngFor="let mediaItem of movedFilesOnly">
+                                <div matLine class="mat-caption">
+                                    <mat-icon style="font-size: 1rem;width: inherit;height: 1.2rem;vertical-align: middle;">done</mat-icon>
+                                    <span fxShow fxHide.xs="true" fxHide.sm="true">{{formatPath(mediaItem.path)}}</span>
+                                    <span fxShow fxHide.xl="true" fxHide.md="true" fxHide.lg="true">{{mediaItem.name}}</span>
+                                </div>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+                </div>
+
+                <div *ngSwitchCase="'Processing'">
+
+                    <mat-card-header>
+                        <div mat-card-avatar style="background-size: cover" [style.backgroundImage]="'url('+ ownerPictureUrl +')'"></div>
+                        <mat-card-title>
+                            <span class="item-processing">{{item.name}}</span>
+                        </mat-card-title>
+                        <mat-card-subtitle>{{itemUrl()}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-progress-bar color="accent" mode="buffer"></mat-progress-bar>
+                    </mat-card-content>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

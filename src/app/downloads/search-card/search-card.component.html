@@ -1,0 +1,37 @@
+<div class="search-card-component">
+  <!-- searchbar -->
+  <div class="searchbar-wrapper mat-elevation-z1" fxLayout="row" fxLayoutAlign="start none">
+    <div style="display: flex;align-items: center; padding: 0 10px 0 17px">
+      <mat-icon>search</mat-icon>
+    </div>
+    <input [(value)]="searchQuery" [formControl]="searchFormControl" type="text" placeholder="Search" #search>
+    <div class="clear-search-button-wrapper" *ngIf="inputText.length" (click)="clearInput()">
+      <button mat-icon-button disableRipple class="clear">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- results -->
+  <div class="search-results mat-elevation-z1" *ngIf="torrentSearchItems.length > 0 || awaitingSearch || noResults">
+
+    <!-- spinner -->
+    <div *ngIf="awaitingSearch" class="spinner" fxLayout="column" fxLayoutAlign="center center">
+      <mat-spinner diameter="42" color="accent" mode="indeterminate"></mat-spinner>
+    </div>
+    <!-- list -->
+    <mat-list [@searchItemsAnimation]="torrentSearchItems.length" dense>
+      <mat-list-item *ngIf="noResults && !awaitingSearch" fxLayout="column" fxLayoutAlign="center center">
+        <span class="light-grey">No results</span>
+      </mat-list-item>
+      <mat-list-item *ngFor="let item of torrentSearchItems">
+        <mat-icon class="light-grey" mat-list-icon [svgIcon]="'folder'"></mat-icon>
+        <span mat-line>{{item.title}}</span>
+        <p mat-line  class="light-grey"> {{ filesize(item.size) }} </p>
+        <button class="download" (click)="launchDownload(item)" mat-icon-button color="accent">
+          <mat-icon [svgIcon]="'download'"></mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

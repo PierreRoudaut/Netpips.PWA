@@ -1,0 +1,15 @@
+<div>
+  <div class="component-caption mat-body-2">Disk usage</div>
+  <mat-card class="available-disk-usage">
+    <dx-circular-gauge #diskUsageGauge [value]="report.totalSize - report.availableFreeSpace" (onOptionChanged)="onOptionChanged($event)" >
+      <dxo-scale [startValue]="0" [endValue]="report.totalSize" >
+        <dxo-label [useRangeColors]="true"></dxo-label>
+      </dxo-scale>
+      <dxo-range-container palette="material">
+        <dxi-range [startValue]="0" [endValue]="okLimit"></dxi-range>
+        <dxi-range [startValue]="okLimit" [endValue]="warningLimit"></dxi-range>
+        <dxi-range [startValue]="warningLimit" [endValue]="report.totalSize"></dxi-range>
+      </dxo-range-container>
+    </dx-circular-gauge>
+  </mat-card>
+</div>
