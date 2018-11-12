@@ -67,6 +67,21 @@ export class DownloadService extends APIService implements IDownloadService {
             .post<any>(this.API_URL + '/start', body)
             .pipe(map(res => new DownloadItem(res)));
     }
+
+    isUrlSupported(fileUrl: string): Observable<UrlValidationResult> {
+        const body = JSON.stringify(fileUrl);
+        return this.httpClient
+            .post<any>(this.API_URL + '/isUrlSupported', body)
+            .pipe(map(res => new UrlValidationResult(res)));
+    }
+}
+
+export class UrlValidationResult {
+    isSupported: boolean;
+    message: string;
+    constructor(obj: any) {
+        Object.assign(this, obj);
+    }
 }
 
 

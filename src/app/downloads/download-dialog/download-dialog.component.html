@@ -4,7 +4,10 @@
         <mat-dialog-content>
             <mat-form-field color="accent" style="width:100%">
                 <input formControlName="fileUrl" autocomplete="off" matInput [(ngModel)]="fileUrl" name="fileUrl" placeholder="URL" required>
-                <mat-error *ngIf="form.get('fileUrl').hasError('invalidUrl')">{{form.get('fileUrl').getError('invalidUrl').message}}</mat-error>
+                <mat-hint align="start">{{form.get('fileUrl').status}}</mat-hint>
+                <mat-hint class="success" *ngIf="form.get('fileUrl').status === 'VALID'" align="start">URL validated !</mat-hint>
+                <mat-hint *ngIf="form.get('fileUrl').status === 'PENDING'" align="start">Validating URL...</mat-hint>
+                <mat-error *ngIf="form.get('fileUrl').hasError('notSupported')">{{form.get('fileUrl').getError('notSupported').message}}</mat-error>
             </mat-form-field>
         </mat-dialog-content>
         <mat-dialog-actions align="end">
