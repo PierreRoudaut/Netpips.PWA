@@ -12,7 +12,7 @@
     "serve.prod": "ng serve --prod --configuration=production -o",
     "build.staging": "ng build --prod --configuration=staging",
     "serve.staging": "ng serve --prod --configuration=staging -o",
-    "serve.dev": "ng serve --prod --configuration=dev -o"
+    "serve.dev": "ng serve --configuration=dev -o"
   },
   "private": true,
   "dependencies": {

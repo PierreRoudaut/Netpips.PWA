@@ -5,6 +5,14 @@ import { map } from 'rxjs/operators';
 import { Injector, Injectable } from '@angular/core';
 import { IDownloadService } from './i-download.service';
 
+export class UrlValidationResult {
+    isSupported: boolean;
+    message: string;
+    constructor(obj: any) {
+        Object.assign(this, obj);
+    }
+}
+
 @Injectable()
 export class DownloadService extends APIService implements IDownloadService {
 
@@ -67,6 +75,14 @@ export class DownloadService extends APIService implements IDownloadService {
             .post<any>(this.API_URL + '/start', body)
             .pipe(map(res => new DownloadItem(res)));
     }
+
+    isUrlSupported(fileUrl: string): Observable<any> {
+        const body = JSON.stringify(fileUrl);
+        return this.httpClient
+            .post<any>(this.API_URL + '/isUrlSupported', body)
+            .pipe(map(res => new UrlValidationResult(res)));
+    }
 }
+
 
 

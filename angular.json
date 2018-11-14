@@ -31,7 +31,7 @@
               "node_modules/devextreme/dist/css/dx.material.teal.light.css",
               "src/styles/styles.scss",
               "src/styles/styles-app-loading.scss",
-              "src/styles/custom-indigo-pink-theme.scss"
+              "src/styles/custom-angular-material-theme.scss"
             ],
             "scripts": []
           },
@@ -73,7 +73,13 @@
               "outputPath": "dist/staging"
             },
             "dev": {
-              "optimization": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": true,
               "extractCss": true,
