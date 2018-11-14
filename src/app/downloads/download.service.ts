@@ -5,6 +5,14 @@ import { map } from 'rxjs/operators';
 import { Injector, Injectable } from '@angular/core';
 import { IDownloadService } from './i-download.service';
 
+export class UrlValidationResult {
+    isSupported: boolean;
+    message: string;
+    constructor(obj: any) {
+        Object.assign(this, obj);
+    }
+}
+
 @Injectable()
 export class DownloadService extends APIService implements IDownloadService {
 
@@ -76,12 +84,5 @@ export class DownloadService extends APIService implements IDownloadService {
     }
 }
 
-export class UrlValidationResult {
-    isSupported: boolean;
-    message: string;
-    constructor(obj: any) {
-        Object.assign(this, obj);
-    }
-}
 
 
