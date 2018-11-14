@@ -1,18 +1,17 @@
 <div>
     <form [formGroup]="form">
-        <h3 mat-dialog-title>Download</h3>
+        <h3 mat-dialog-title>Start a download</h3>
         <mat-dialog-content>
             <mat-form-field color="accent" style="width:100%">
-                <input formControlName="fileUrl" autocomplete="off" matInput [(ngModel)]="fileUrl" name="fileUrl" placeholder="URL" required>
-                <mat-hint align="start">{{form.get('fileUrl').status}}</mat-hint>
-                <mat-hint class="success" *ngIf="form.get('fileUrl').status === 'VALID'" align="start">URL validated !</mat-hint>
-                <mat-hint *ngIf="form.get('fileUrl').status === 'PENDING'" align="start">Validating URL...</mat-hint>
-                <mat-error *ngIf="form.get('fileUrl').hasError('notSupported')">{{form.get('fileUrl').getError('notSupported').message}}</mat-error>
+                <input formControlName="url" autocomplete="off" matInput name="fileUrlInput" placeholder="URL" required>
+                <mat-hint class="success" *ngIf="form.get('url').status === 'VALID'" align="start">URL validated !</mat-hint>
+                <mat-hint *ngIf="form.get('url').status === 'PENDING'" align="start">Validating URL...</mat-hint>
+                <mat-error *ngIf="form.get('url').hasError('notSupported')">{{form.get('url').getError('notSupported').message}}</mat-error>
             </mat-form-field>
         </mat-dialog-content>
         <mat-dialog-actions align="end">
             <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
-            <button color="accent" [disabled]="form.invalid" (click)="onOk()" mat-button mat-dialog-close><strong>OK</strong></button>
+            <button color="accent" [disabled]="!form.valid" (click)="onOk()" mat-button mat-dialog-close><strong>OK</strong></button>
         </mat-dialog-actions>
     </form>
 </div>

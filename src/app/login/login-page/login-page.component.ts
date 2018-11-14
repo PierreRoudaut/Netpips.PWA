@@ -37,7 +37,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     }
 
     onGoogleSignInSuccess = (event: GoogleSignInSuccess) => {
-        console.log('google signin success: ' + event);
         this.zone.run(() => {
             this.loginState = 'AwaitingBackendAuth';
             const googleUser: gapi.auth2.GoogleUser = event.googleUser;
