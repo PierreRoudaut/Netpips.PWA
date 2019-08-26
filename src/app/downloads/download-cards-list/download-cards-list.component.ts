@@ -19,21 +19,21 @@ import { DownloadDialogComponent } from '../download-dialog/download-dialog.comp
     styleUrls: ['./download-cards-list-component.scss'],
     animations: [
         trigger('downloadItemsAnimation', [
-          transition('* => *', [
-            query(':leave', [
-              stagger(100, [
-                animate('0.2s', style({ transform: 'scale(0)', opacity: 0 }))
-              ])
-            ], { optional: true }),
-            query(':enter', [
-              style({ transform: 'scale(0.5)', opacity: 0.1 }),
-              stagger(100, [
-                animate('0.2s', style({ transform: 'scale(1)', opacity: 1 }))
-              ])
-            ], { optional: true })
-          ])
+            transition('* => *', [
+                query(':leave', [
+                    stagger(100, [
+                        animate('0.2s', style({ transform: 'scale(0)', opacity: 0 }))
+                    ])
+                ], { optional: true }),
+                query(':enter', [
+                    style({ transform: 'scale(0.5)', opacity: 0.1 }),
+                    stagger(100, [
+                        animate('0.2s', style({ transform: 'scale(1)', opacity: 1 }))
+                    ])
+                ], { optional: true })
+            ])
         ])
-      ]
+    ]
 })
 
 export class DownloadCardsListComponent implements OnInit, OnDestroy {
@@ -101,12 +101,17 @@ export class DownloadCardsListComponent implements OnInit, OnDestroy {
         _.remove(this.downloads, e => e.token === token)
 
     private downloadActionErrorHandler(res: HttpErrorResponse, url: string) {
-        if (res.error === 'DownloadabilityFailure') {
-            if (url.startsWith('magnet')) {
-                this.snackbarService.warn('No peers found');
-            } else {
-                this.snackbarService.warn('File not found');
-            }
+        switch (res.error) {
+            case 'DownloadabilityFailure':
+                if (url.startsWith('magnet')) {
+                    this.snackbarService.warn('No peers found');
+                } else {
+                    this.snackbarService.warn('File not found');
+                }
+                break;
+            case 'DuplicateDownload':
+                this.snackbarService.info('Cleanup existing download for: ' + url + ' and try again');
+                break;
         }
     }
 
