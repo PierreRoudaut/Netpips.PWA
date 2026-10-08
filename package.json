@@ -10,7 +10,8 @@
     "serve.prod": "ng serve --configuration=production -o",
     "build.staging": "ng build --configuration=staging",
     "serve.staging": "ng serve --configuration=staging -o",
-    "serve.dev": "ng serve --configuration=dev -o"
+    "serve.dev": "ng serve --configuration=dev -o",
+    "test.ci": "ng test --watch=false --code-coverage"
   },
   "private": true,
   "dependencies": {
@@ -25,32 +26,31 @@
     "@angular/platform-browser-dynamic": "^21.2.25",
     "@angular/router": "^21.2.25",
     "@auth0/angular-jwt": "^5.2.0",
-    "devextreme": "25.2.10",
-    "devextreme-angular": "25.2.10",
-    "filesize": "^10.1.6",
+    "devextreme": "26.1.5",
+    "devextreme-angular": "26.1.5",
+    "filesize": "^11.0.25",
     "hammerjs": "^2.0.8",
-    "is_js": "^0.9.0",
     "lodash-es": "^4.17.21",
     "moment": "^2.30.1",
     "ngx-flexible-layout": "^21.0.1",
     "rxjs": "^7.8.2",
     "tslib": "^2.8.1",
     "urijs": "^1.19.11",
-    "zone.js": "~0.15.1"
+    "zone.js": "^0.16.3"
   },
   "devDependencies": {
     "@angular/build": "^21.2.26",
     "@angular/cli": "^21.2.26",
     "@angular/compiler-cli": "^21.2.25",
     "@types/google.accounts": "^0.0.18",
-    "@types/jasmine": "~5.1.8",
+    "@types/jasmine": "^6.0.0",
     "@types/lodash-es": "^4.17.12",
-    "jasmine-core": "~5.9.0",
+    "jasmine-core": "^6.3.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-jasmine-html-reporter": "^2.3.0",
     "sass": "^1.89.0",
     "typescript": "~5.9.3"
   }
