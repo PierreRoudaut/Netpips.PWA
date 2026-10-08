@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, ValidatorFn, FormControl, Validators, AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { DownloadService } from '../download.service';
 import { of, Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import * as is from 'is_js';
 
 @Component({
+    standalone: false,
     selector: 'app-download-dialog',
     templateUrl: './download-dialog.component.html',
     styleUrls: ['./download-dialog.component.scss']

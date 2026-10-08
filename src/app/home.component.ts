@@ -3,7 +3,7 @@ import { environment } from 'environments/environment';
 import * as is from 'is_js';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import * as URI from 'urijs';
+import URI from 'urijs';
 import * as _ from 'lodash-es';
 import { AuthService } from './auth/auth.service';
 
@@ -14,6 +14,7 @@ export class RouteItem {
 }
 
 @Component({
+    standalone: false,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

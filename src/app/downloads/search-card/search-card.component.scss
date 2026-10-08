@@ -33,7 +33,7 @@ div.search-card-component {
             padding-bottom: 30px;
         }
 
-        /deep/ mat-list  {
+        ::ng-deep mat-list  {
             .light-grey {
                 color: rgba(0, 0, 0, 0.54);
             }

@@ -27,12 +27,9 @@ import { DevextremeModule } from '../devextreme.module';
         DevextremeModule,
         FormsModule, ReactiveFormsModule
     ],
-    providers: [,
+    providers: [
         TorrentSearchService,
         DownloadService
-    ],
-    entryComponents: [
-        DownloadDialogComponent
     ]
 })
 export class DownloadModule { }

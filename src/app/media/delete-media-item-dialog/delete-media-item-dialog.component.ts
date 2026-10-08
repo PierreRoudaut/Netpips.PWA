@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PlainMediaItem } from '../plain-media-item';
 
 interface DeleteDialogParam {
@@ -9,6 +9,7 @@ interface DeleteDialogParam {
 }
 
 @Component({
+    standalone: false,
   selector: 'app-delete-media-item-dialog',
   template: `
   <h3 mat-dialog-title>Delete</h3>

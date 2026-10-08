@@ -1,9 +1,8 @@
-@import '~styles/custom-angular-material-theme.scss';
 mat-expansion-panel {
     mat-panel-description {
         span.next-episode-duration {
             margin-left: 5px;
-            color: mat-color($app-accent, 300);
+            color: var(--mat-sys-tertiary);
         }
         .mat-icon {
             margin-right: 5px;

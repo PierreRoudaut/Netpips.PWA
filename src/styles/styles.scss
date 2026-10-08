@@ -1,6 +1,6 @@
+@use 'styles/custom-angular-material-theme';
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import '~styles/custom-angular-material-theme.scss';
 html,
 body {
     font-family: 'Roboto', sans-serif;
@@ -15,11 +15,11 @@ body {
 }
 
 // fixes alignment bug for material design icons with menus
-button.mat-menu-item {
+button.mat-mdc-menu-item {
     line-height: 24px !important;
 }
 
-a.mat-menu-item>mat-icon {
+a.mat-mdc-menu-item>mat-icon {
     margin-bottom: 14px;
 }
 
@@ -37,7 +37,7 @@ a.mat-menu-item>mat-icon {
 }
 
 .toast-warn {
-    background-color: mat-color($app-warn) !important;
+    background-color: var(--mat-sys-error) !important;
     color: white !important;
     button {
         color: darkslategray;
@@ -45,7 +45,7 @@ a.mat-menu-item>mat-icon {
 }
 
 .toast-primary {
-    background-color: mat-color($app-primary) !important;
+    background-color: var(--mat-sys-primary) !important;
     color: white !important;
     button {
         color: darkgray;
@@ -53,7 +53,7 @@ a.mat-menu-item>mat-icon {
 }
 
 .toast-accent {
-    background-color: mat-color($app-accent) !important;
+    background-color: var(--mat-sys-tertiary) !important;
     color: white !important;
     button {
         color: darkgray;

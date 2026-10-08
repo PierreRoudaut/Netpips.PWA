@@ -1,5 +1,5 @@
 import { PlainMediaItem, MediaItemType } from './plain-media-item';
-import * as filesize from 'filesize';
+import { filesize } from 'filesize';
 import * as _ from 'lodash-es';
 
 export class MediaLibrary {

@@ -4,7 +4,7 @@
 
     <div *ngSwitchCase="'AwaitingGoogleAuth'" fxLayout="column" fxLayoutAlign="center center">
       <img src='/assets/netpips_icon_128.png' alt='image' style="padding-bottom: 10px">
-      <google-signin width='240' height='50' [clientId]="clientId" theme="light" longTitle="true" (googleSignInSuccess)="onGoogleSignInSuccess($event)"></google-signin>
+      <app-google-signin [width]="240" [clientId]="clientId" (googleSignInSuccess)="onGoogleSignInSuccess($event)"></app-google-signin>
     </div>
 
     <div *ngSwitchCase="'AwaitingBackendAuth'" fxLayout="column" fxLayoutAlign="center center">

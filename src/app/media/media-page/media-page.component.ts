@@ -4,6 +4,7 @@ import { MediaService } from '../media.service';
 import { MediaLibrary } from '../media-library';
 
 @Component({
+    standalone: false,
     selector: 'app-media-page',
     templateUrl: './media-page.component.html',
     styleUrls: ['./media-page.component.scss'],

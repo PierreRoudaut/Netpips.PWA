@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PlainMediaItem } from '../plain-media-item';
 import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 
@@ -9,6 +9,7 @@ interface RenameDialogParam {
 }
 
 @Component({
+    standalone: false,
   selector: 'app-rename-media-item-dialog',
   template: `
   <form [formGroup]="form">

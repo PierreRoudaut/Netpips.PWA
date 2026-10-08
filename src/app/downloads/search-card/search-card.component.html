@@ -17,7 +17,7 @@
 
     <!-- spinner -->
     <div *ngIf="awaitingSearch" class="spinner" fxLayout="column" fxLayoutAlign="center center">
-      <mat-spinner diameter="42" color="accent" mode="indeterminate"></mat-spinner>
+      <mat-spinner diameter="42" color="tertiary" mode="indeterminate"></mat-spinner>
     </div>
     <!-- list -->
     <mat-list [@searchItemsAnimation]="torrentSearchItems.length" dense>
@@ -25,10 +25,10 @@
         <span class="light-grey">No results</span>
       </mat-list-item>
       <mat-list-item *ngFor="let item of torrentSearchItems">
-        <mat-icon class="light-grey" mat-list-icon [svgIcon]="'folder'"></mat-icon>
-        <span mat-line>{{item.title}}</span>
-        <p mat-line  class="light-grey"> {{ filesize(item.size) }} </p>
-        <button class="download" (click)="launchDownload(item)" mat-icon-button color="accent">
+        <mat-icon class="light-grey" matListItemIcon [svgIcon]="'folder'"></mat-icon>
+        <span matListItemTitle>{{item.title}}</span>
+        <p matListItemLine  class="light-grey"> {{ filesize(item.size) }} </p>
+        <button matListItemMeta class="download" (click)="launchDownload(item)" mat-icon-button color="tertiary">
           <mat-icon [svgIcon]="'download'"></mat-icon>
         </button>
       </mat-list-item>

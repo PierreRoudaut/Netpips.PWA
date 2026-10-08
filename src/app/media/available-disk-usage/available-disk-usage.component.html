@@ -1,7 +1,7 @@
 <div>
   <div class="component-caption mat-body-2">Disk usage</div>
   <mat-card class="available-disk-usage">
-    <dx-circular-gauge #diskUsageGauge [value]="report.totalSize - report.availableFreeSpace" (onOptionChanged)="onOptionChanged($event)" >
+    <dx-circular-gauge #diskUsageGauge [value]="report.totalSize - report.availableFreeSpace" (onOptionChanged)="onOptionChanged()" >
       <dxo-scale [startValue]="0" [endValue]="report.totalSize" >
         <dxo-label [useRangeColors]="true"></dxo-label>
       </dxo-scale>

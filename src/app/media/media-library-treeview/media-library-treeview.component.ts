@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MediaService } from '../media.service';
 import { MediaItemType, PlainMediaItem } from '../plain-media-item';
-import * as filesize from 'filesize';
+import { filesize } from 'filesize';
 import * as _ from 'lodash-es';
 import { pluralize } from '../../core/helper';
-import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DxContextMenuComponent } from 'devextreme-angular/ui/context-menu';
 import { DeleteMediaItemDialogComponent } from '../delete-media-item-dialog/delete-media-item-dialog.component';
 import { finalize } from 'rxjs/operators';
@@ -19,6 +20,7 @@ export interface MediaItemContextMenuAction {
 }
 
 @Component({
+    standalone: false,
     selector: 'app-media-library-treeview',
     templateUrl: './media-library-treeview.component.html',
     styleUrls: ['./media-library-treeview.component.scss']
@@ -133,7 +135,7 @@ export class MediaLibraryTreeviewComponent implements OnInit {
             .getSubtitles(this.selectedItem, lang)
             .pipe(finalize(() => { this.loadingPanelVisible = false; }))
             .subscribe(subtitleItem => {
-                this.library.items.splice(_.findIndex(this.library, { 'path': this.selectedItem.path }), 0, subtitleItem);
+                this.library.items.splice(_.findIndex(this.library.items, { 'path': this.selectedItem.path }), 0, subtitleItem);
                 // this.itemMenu.instance.selectItem()
                 this.matSnackBar.open('Downloaded ' + subtitleItem.name, 'Done', { duration: 3000, panelClass: 'toast-primary' });
             }, errRes => {
@@ -194,7 +196,7 @@ export class MediaLibraryTreeviewComponent implements OnInit {
             .autoRename(this.selectedItem)
             .pipe(finalize(() => { this.loadingPanelVisible = false; }))
             .subscribe(items => {
-                _.remove(this.library, i => i.path === this.selectedItem.path);
+                _.remove(this.library.items, i => i.path === this.selectedItem.path);
                 items.forEach(i => this.library.items.push(i));
                 this.matSnackBar.open('Renamed: ' + this.getFilename(items.find(f => f.type === MediaItemType.Video)), 'Done',
                     { duration: 3000, panelClass: 'toast-primary' });
