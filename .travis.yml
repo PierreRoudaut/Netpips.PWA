@@ -1,7 +1,0 @@
-language: node_js
-dist: jammy
-node_js: '22'
-cache: npm
-script:
- - npm ci
- - npm run build
