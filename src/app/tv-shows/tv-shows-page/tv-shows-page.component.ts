@@ -4,6 +4,7 @@ import { SnackbarService } from 'app/helpers/snackbar.service';
 import * as _ from 'lodash-es';
 
 @Component({
+    standalone: false,
   selector: 'app-my-shows-page',
   templateUrl: './tv-shows-page.component.html',
   styleUrls: ['./tv-shows-page.component.scss']

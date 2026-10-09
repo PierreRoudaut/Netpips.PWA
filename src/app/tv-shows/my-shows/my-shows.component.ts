@@ -3,6 +3,7 @@ import { TvShowRss } from '../tv-show.service';
 import { TvShowDetailParams } from 'app/tv-shows/tv-show-detail/tv-show-detail.component';
 
 @Component({
+    standalone: false,
   selector: 'app-my-shows',
   templateUrl: './my-shows.component.html',
   styleUrls: ['./my-shows.component.scss']
@@ -15,7 +16,7 @@ export class MyShowsComponent implements OnInit {
 
   params: TvShowDetailParams = {
     buttonCaption: 'Remove',
-    buttonColor: 'warn',
+    buttonColor: 'error',
     panelInitiallyExpanded: false
   };
 

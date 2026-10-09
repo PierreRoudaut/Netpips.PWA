@@ -6,6 +6,7 @@ import { startWith, map } from 'rxjs/operators';
 import { TvShowDetailParams } from 'app/tv-shows/tv-show-detail/tv-show-detail.component';
 
 @Component({
+    standalone: false,
   selector: 'app-add-show',
   templateUrl: './add-show.component.html',
   styleUrls: ['./add-show.component.scss']
@@ -23,7 +24,7 @@ export class AddShowComponent implements OnInit {
 
   params: TvShowDetailParams = {
     buttonCaption: 'Add',
-    buttonColor: 'accent',
+    buttonColor: 'tertiary',
     panelInitiallyExpanded: true
   };
 

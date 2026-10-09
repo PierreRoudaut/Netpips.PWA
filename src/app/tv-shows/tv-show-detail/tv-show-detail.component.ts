@@ -3,6 +3,7 @@ import { TvShowService, TvShowRss } from '../tv-show.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
+    standalone: false,
   selector: 'app-tv-show-detail',
   templateUrl: './tv-show-detail.component.html',
   styleUrls: ['./tv-show-detail.component.scss']
@@ -32,6 +33,6 @@ export class TvShowDetailComponent implements OnChanges {
 
 export interface TvShowDetailParams {
   buttonCaption: 'Add' | 'Remove';
-  buttonColor: 'warn' | 'accent' | 'primary';
+  buttonColor: 'error' | 'tertiary' | 'primary';
   panelInitiallyExpanded: boolean;
 }

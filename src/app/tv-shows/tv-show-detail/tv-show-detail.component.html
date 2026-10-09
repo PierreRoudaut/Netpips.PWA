@@ -12,7 +12,7 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
   <div *ngIf="loadingPanelVisible" fxLayout="column" fxLayoutAlign="center center">
-    <mat-spinner diameter="42" color="accent" mode="indeterminate"></mat-spinner>
+    <mat-spinner diameter="42" color="tertiary" mode="indeterminate"></mat-spinner>
   </div>
   <div *ngIf="show.detail" class="show-detail" fxFlex fxLayout="column" fxLayoutGap="10px">
     <div fxFlex fxLayout="row" fxLayoutGap="15px">
@@ -26,9 +26,9 @@
           <mat-icon>star</mat-icon>
           <span>{{show.detail.rating}}/10</span>
         </div>
-        <mat-chip-list class="genres">
-          <mat-chip selected color="accent" *ngFor="let genre of show.detail.genres">{{genre}}</mat-chip>
-        </mat-chip-list>
+        <mat-chip-set class="genres">
+          <mat-chip highlighted color="tertiary" *ngFor="let genre of show.detail.genres">{{genre}}</mat-chip>
+        </mat-chip-set>
       </div>
     </div>
     <div class="summary-row">

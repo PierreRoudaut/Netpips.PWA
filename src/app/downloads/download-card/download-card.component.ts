@@ -6,8 +6,8 @@ import { DownloadService } from '../download.service';
 import { NotificationService } from '../../helpers/notification.service';
 
 import * as _ from 'lodash-es';
-import * as moment from 'moment';
-import * as filesize from 'filesize';
+import moment from 'moment';
+import { filesize } from 'filesize';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { MediaItemType } from '../../media/plain-media-item';
@@ -19,6 +19,7 @@ export class ItemProgress {
 }
 
 @Component({
+    standalone: false,
     selector: 'app-download-card',
     templateUrl: './download-card.component.html',
     styleUrls: ['./download-card.component.scss'],

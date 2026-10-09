@@ -4,7 +4,7 @@ import { Injector } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import * as _ from 'lodash-es';
-import * as moment from 'moment';
+import moment from 'moment';
 
 
 export class TvShowRss {

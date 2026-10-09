@@ -1,5 +1,5 @@
 <div class="download-cards-list-component">
-  <mat-progress-bar *ngIf="pendingRequests.length > 0" style="height: 3px" color="accent" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar *ngIf="pendingRequests.length > 0" style="height: 3px" color="tertiary" mode="indeterminate"></mat-progress-bar>
 
   <app-search-card (startDownload)="startDownload($event)"></app-search-card>
 

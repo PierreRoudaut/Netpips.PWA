@@ -1,4 +1,3 @@
-@import '~styles/custom-angular-material-theme.scss';
 .download-card-component {
     margin-left: 10px;
     margin-right: 10px;
@@ -25,15 +24,15 @@
         mat-card-title {
             span {
                 &.item-completed {
-                    color: mat-color($app-primary);
+                    color: var(--mat-sys-primary);
                     font-weight: bold;
                 }
                 &.item-processing {
-                    color: mat-color($app-accent);
+                    color: var(--mat-sys-tertiary);
                     font-weight: bold;
                 }
                 &.item-downloading {
-                    color: mat-color($app-accent);
+                    color: var(--mat-sys-tertiary);
                     font-weight: bold;
                 }
                 &.item-canceled {

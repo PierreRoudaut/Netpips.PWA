@@ -1,11 +1,10 @@
-@import '~styles/custom-angular-material-theme.scss';
 .media-library-treeview {
     span.size {
         margin-left: 10px;
         color: grey;
         font-weight: 300;
     }
-    /deep/ dx-tree-view {
+    ::ng-deep dx-tree-view {
         div.media-item {
             span.title {
                 color: rgba(0, 0, 0, 0.54);
@@ -14,7 +13,7 @@
         }
         div.media-item.root-node {
             span.title {
-                color: mat-color($app-primary);
+                color: var(--mat-sys-primary);
                 font-weight: 500;
             }
         }

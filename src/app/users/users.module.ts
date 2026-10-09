@@ -20,8 +20,6 @@ import { MaterialModule } from '../material.module';
     ],
     providers: [
         UserService
-    ],
-    entryComponents: [
     ]
 })
 export class UsersModule { }

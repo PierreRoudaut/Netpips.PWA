@@ -3,6 +3,7 @@ import { DiskUsageReport, MediaService } from '../media.service';
 import { DxCircularGaugeComponent } from 'devextreme-angular/ui/circular-gauge';
 
 @Component({
+    standalone: false,
   selector: 'app-available-disk-usage',
   templateUrl: './available-disk-usage.component.html',
   styleUrls: ['./available-disk-usage.component.scss']

@@ -1,11 +1,11 @@
 
 import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
-import { GoogleSignInSuccess } from 'angular-google-signin';
 import { environment } from 'environments/environment';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
+    standalone: false,
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.scss']
@@ -36,13 +36,12 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
         this.loginState = 'AwaitingGoogleAuth';
     }
 
-    onGoogleSignInSuccess = (event: GoogleSignInSuccess) => {
+    onGoogleSignInSuccess = (idToken: string) => {
         this.zone.run(() => {
             this.loginState = 'AwaitingBackendAuth';
-            const googleUser: gapi.auth2.GoogleUser = event.googleUser;
             this.authService.clearTokenSession();
             this.authService
-                .login(googleUser.getAuthResponse().id_token)
+                .login(idToken)
                 .subscribe(() => {
                     this.loginState = 'Authenticated';
                     this.router.navigateByUrl('');

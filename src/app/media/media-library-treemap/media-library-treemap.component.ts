@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit, ViewChild, AfterViewChecked, OnChanges } from '@angular/core';
 import { PlainMediaItem } from '../plain-media-item';
 import { DxTreeMapComponent } from 'devextreme-angular/ui/tree-map';
-import * as filesize from 'filesize';
+import { filesize } from 'filesize';
 import { MediaLibrary } from '../media-library';
 
 interface DrillInfo {
@@ -10,6 +10,7 @@ interface DrillInfo {
 }
 
 @Component({
+    standalone: false,
   selector: 'app-media-library-treemap',
   templateUrl: './media-library-treemap.component.html',
   styleUrls: ['./media-library-treemap.component.scss']

@@ -3,6 +3,7 @@ import { MediaService, MediaFolderSummary } from '../media.service';
 import { DxPieChartComponent } from 'devextreme-angular/ui/pie-chart';
 
 @Component({
+    standalone: false,
   selector: 'app-media-library-distribution',
   templateUrl: './media-library-distribution.component.html',
   styleUrls: ['./media-library-distribution.component.scss']

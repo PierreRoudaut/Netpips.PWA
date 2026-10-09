@@ -11,7 +11,7 @@ import { MaterialModule } from './material.module';
 
 import { SnackbarService } from './helpers/snackbar.service';
 import { NotificationService } from './helpers/notification.service';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry } from '@angular/material/icon';
 
 import { DownloadModule } from './downloads/download.module';
 import { AppRoutingModule } from './app-routing.module';

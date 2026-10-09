@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-declare var gapi: any;
-
 
 @Injectable({
   providedIn: 'root'
@@ -71,21 +69,15 @@ export class AuthService extends APIService {
     return true;
   }
 
-  signOut(): Promise<any> {
+  signOut(): Promise<void> {
     this._user = null;
     this.expiresAt = null;
     this.clearTokenSession();
-    return new Promise((resolve) => {
-      gapi
-        .load('auth2', () => {
-          const authInstance = gapi.auth2.getAuthInstance();
-          if (authInstance != null && authInstance.signOut) {
-            authInstance.signOut().then(resolve);
-          } else {
-            resolve();
-          }
-        });
-    });
+    // prevents Google from automatically re-selecting the account on next login
+    if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+      google.accounts.id.disableAutoSelect();
+    }
+    return Promise.resolve();
   }
 
   get isLoggedIn(): boolean {

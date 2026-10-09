@@ -4,11 +4,12 @@ import { Subscription } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { TorrentSearchItem } from '../torrent-search-item';
 import { TorrentSearchService } from '../torrent-search.service';
-import * as filesize from 'filesize';
+import { filesize } from 'filesize';
 import { trigger, style, animate, transition, query, stagger } from '@angular/animations';
 import { SnackbarService } from '../../helpers/snackbar.service';
 
 @Component({
+    standalone: false,
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
   styleUrls: ['./search-card.component.scss'],

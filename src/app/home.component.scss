@@ -1,4 +1,3 @@
-@import '~styles/custom-angular-material-theme.scss';
 .home-component {
     background-color: #f2f2f2;
     height: 100%;
@@ -20,13 +19,15 @@
                 width: 50px;
                 height: 50px;
             }
-            background-color: mat-color($app-primary);
+            background-color: var(--mat-sys-primary);
             div {
                 color: white;
             }
         }
     }
     mat-toolbar {
+        --mat-toolbar-container-background-color: var(--mat-sys-primary);
+        --mat-toolbar-container-text-color: var(--mat-sys-on-primary);
         // background-color: #aeb5b4; //todo: remove
         box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
     }

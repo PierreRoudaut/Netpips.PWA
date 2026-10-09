@@ -9,11 +9,12 @@ import { finalize } from 'rxjs/operators';
 import * as _ from 'lodash-es';
 
 import { trigger, style, animate, transition, query, stagger } from '@angular/animations';
-import { HttpErrorResponse } from '@angular/common/http/src/response';
-import { MatDialog } from '@angular/material';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
 import { DownloadDialogComponent } from '../download-dialog/download-dialog.component';
 
 @Component({
+    standalone: false,
     selector: 'app-download-cards-list',
     templateUrl: './download-cards-list.component.html',
     styleUrls: ['./download-cards-list-component.scss'],
@@ -97,8 +98,9 @@ export class DownloadCardsListComponent implements OnInit, OnDestroy {
      * Removes a download from the list
      * @param token the token
      */
-    public removeDownload = (token: string): void =>
-        _.remove(this.downloads, e => e.token === token)
+    public removeDownload = (token: string): void => {
+        _.remove(this.downloads, e => e.token === token);
+    }
 
     private downloadActionErrorHandler(res: HttpErrorResponse, url: string) {
         if (res.error === 'DownloadabilityFailure') {

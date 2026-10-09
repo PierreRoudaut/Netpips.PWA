@@ -7,6 +7,7 @@ import * as _ from 'lodash-es';
 import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
 
 @Component({
+    standalone: false,
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']

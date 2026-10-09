@@ -30,10 +30,6 @@ import { MediaLibraryTreemapComponent } from './media-library-treemap/media-libr
     ],
     providers: [
         MediaService
-    ],
-    entryComponents: [
-        DeleteMediaItemDialogComponent,
-        RenameMediaItemDialogComponent
     ]
 })
 export class MediaModule { }

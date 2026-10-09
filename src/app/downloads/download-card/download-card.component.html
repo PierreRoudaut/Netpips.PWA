@@ -12,11 +12,11 @@
                         <mat-card-subtitle>{{itemUrl()}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <mat-progress-bar color="accent" mode="determinate" [value]="percentageProgress"></mat-progress-bar>
+                        <mat-progress-bar color="tertiary" mode="determinate" [value]="percentageProgress"></mat-progress-bar>
                         <small>{{progressLine}}</small>
                     </mat-card-content>
                     <mat-card-actions align="end">
-                        <button *ngIf="canEditDownloadItem()" color="accent" class="cancel" (click)="cancel()" mat-button>CANCEL</button>
+                        <button *ngIf="canEditDownloadItem()" color="tertiary" class="cancel" (click)="cancel()" mat-button>CANCEL</button>
                     </mat-card-actions>
                 </div>
 
@@ -52,7 +52,7 @@
                     <mat-card-content [@movedFilesListAnimation]="movedFilesExpanded" *ngIf="movedFilesExpanded">
                         <mat-list dense>
                             <mat-list-item *ngFor="let mediaItem of movedFilesOnly">
-                                <div matLine class="mat-caption">
+                                <div matListItemTitle class="mat-caption">
                                     <mat-icon style="font-size: 1rem;width: inherit;height: 1.2rem;vertical-align: middle;">done</mat-icon>
                                     <span fxShow fxHide.xs="true" fxHide.sm="true">{{formatPath(mediaItem.path)}}</span>
                                     <span fxShow fxHide.xl="true" fxHide.md="true" fxHide.lg="true">{{mediaItem.name}}</span>
@@ -72,7 +72,7 @@
                         <mat-card-subtitle>{{itemUrl()}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <mat-progress-bar color="accent" mode="buffer"></mat-progress-bar>
+                        <mat-progress-bar color="tertiary" mode="buffer"></mat-progress-bar>
                     </mat-card-content>
                 </div>
             </div>
