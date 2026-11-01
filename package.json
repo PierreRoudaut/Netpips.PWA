@@ -27,7 +27,7 @@
     "@angular/router": "^21.2.25",
     "@auth0/angular-jwt": "^5.2.0",
     "devextreme": "26.1.5",
-    "devextreme-angular": "26.1.5",
+    "devextreme-angular": "26.1.6",
     "filesize": "^11.0.25",
     "hammerjs": "^2.0.8",
     "lodash-es": "^4.17.21",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angular/build": "^21.2.26",
-    "@angular/cli": "^21.2.26",
+    "@angular/cli": "^21.2.29",
     "@angular/compiler-cli": "^21.2.25",
     "@types/google.accounts": "^0.0.18",
     "@types/jasmine": "^6.0.0",
